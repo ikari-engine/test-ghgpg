@@ -20,12 +20,12 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
-          workdir: docs
+          git_config_global: true
       - name: Commit empty message
         run: |
           git remote set-url origin https://${{ secrets.SERVICE_ACCOUNT_TOKEN }}@github.com/${{ github.repository }}.git/
-          git config --local user.name "tensei-engine-bot"
-          git config --local user.email "144497878+tensei-engine@users.noreply.github.com"
+          git config user.name "tensei-engine-bot"
+          git config user.email "144497878+tensei-engine@users.noreply.github.com"
           echo "$(git config --get user.name)"
           echo "$(git config --get user.email)"
           git commit --allow-empty -m "chore: test action"
