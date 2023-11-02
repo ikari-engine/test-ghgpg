@@ -26,6 +26,8 @@ jobs:
         run: |
           echo Email: ${{ steps.import_gpg.outputs.email }}
           echo Name: ${{ steps.import_gpg.outputs.name }}
+          echo Email from git config: $(git config --get user.email)
+          echo Name from git config: $(git config --get user.name)
       - name: Commit empty message
         run: |
           git remote set-url origin https://${{ secrets.SERVICE_ACCOUNT_TOKEN }}@github.com/${{ github.repository }}.git/
