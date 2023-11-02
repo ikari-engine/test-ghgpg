@@ -16,3 +16,6 @@ jobs:
       - name: Check remote
         run: git remote -v
         working-directory: docs
+      - name: Check computed remote
+        run: echo https://${{ secrets.SERVICE_ACCOUNT_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.repository }}.git/
+        working-directory: docs
