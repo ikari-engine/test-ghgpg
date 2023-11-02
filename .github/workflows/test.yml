@@ -26,6 +26,6 @@ jobs:
           git remote set-url origin https://${{ secrets.SERVICE_ACCOUNT_TOKEN }}@github.com/${{ github.repository }}.git/
           git config user.name "tensei-engine-bot"
           git config user.email "144497878+tensei-engine@users.noreply.github.com"
-          git commit --allow-empty -m "chore: test action"
+          git commit -S --allow-empty -m "chore: test action"
           git push
         working-directory: docs
